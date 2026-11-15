@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="notificar"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_popup_reminder"
+        android:shortcutShortLabel="@string/shortcut_notificar_corto"
+        android:shortcutLongLabel="@string/shortcut_notificar_largo">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.saloncopoya.proapp"
+            android:targetClass="com.saloncopoya.proapp.MainActivity">
+            <extra android:name="accion" android:value="notificar" />
+        </intent>
+    </shortcut>
+</shortcuts>
