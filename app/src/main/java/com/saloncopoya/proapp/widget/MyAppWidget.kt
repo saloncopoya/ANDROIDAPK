@@ -19,7 +19,7 @@ import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
-import androidx.glance.Button // 🔥 IMPORTANTE: Importación correcta para el botón
+import androidx.glance.Button
 import com.saloncopoya.proapp.MainActivity
 
 class MyAppWidget : GlanceAppWidget() {
@@ -28,7 +28,10 @@ class MyAppWidget : GlanceAppWidget() {
     )
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        provideContent { MyContent() }
+        // 🔥 ESTA ES LA LÍNEA CLAVE: provideContent debe llamarse siempre
+        provideContent { 
+            MyContent() 
+        }
     }
 
     @Composable
@@ -42,7 +45,6 @@ class MyAppWidget : GlanceAppWidget() {
                 text = "Widget Pro", 
                 style = TextStyle(color = ColorProvider(Color.White))
             )
-            // 🔥 CORRECCIÓN: Eliminamos el parámetro 'style' que causaba el error.
             Button(
                 text = "Abrir App",
                 onClick = actionStartActivity<MainActivity>(),
