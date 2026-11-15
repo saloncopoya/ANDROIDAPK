@@ -27,6 +27,7 @@ import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.saloncopoya.proapp.databinding.ActivityMainBinding
 import com.saloncopoya.proapp.service.MyForegroundService
+import com.saloncopoya.proapp.widget.forceWidgetUpdate // 🔥 IMPORTACIÓN CLAVE
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +44,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 🔥 FUERZA LA ACTUALIZACIÓN DEL WIDGET AL INICIAR
+        forceWidgetUpdate(this)
 
         askPermissions()
         setupButtonListeners()
@@ -73,11 +77,12 @@ class MainActivity : AppCompatActivity() {
         binding.btnWorkManager.setOnClickListener { schedulePeriodicWork() }
     }
 
-    // 🔥 NUEVO PIP CON BOTONES INTERACTIVOS
+    // 🔥 PIP VERTICAL Y CON BOTONES INTERACTIVOS
     private fun enterPipMode() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Relación de aspecto VERTICAL (9:16)
             val builder = PictureInPictureParams.Builder()
-                .setAspectRatio(Rational(16, 9))
+                .setAspectRatio(Rational(9, 16)) 
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 val playIntent = PendingIntent.getBroadcast(this, 1, Intent(this, PipActionReceiver::class.java).apply { action = "ACTION_PLAY" }, PendingIntent.FLAG_IMMUTABLE)
