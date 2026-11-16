@@ -12,8 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="🚀 Laboratorio Pro"
+            android:text="🚀 Laboratorio Pro v2.0"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -21,168 +20,169 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Ventana flotante interactiva + notificaciones + widgets"
+            android:text="Ventana flotante + 3 widgets + 30+ funciones"
             android:textSize="13sp"
             android:textColor="#666666" />
 
-        <!-- ========== SECCIÓN VENTANA FLOTANTE (PRINCIPAL) ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="🪟 Ventana Flotante Interactiva"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#6200EE" />
-
+        <!-- ═══ VENTANA FLOTANTE ═══ -->
+        <TextView style="@style/SectionHeader" android:text="🪟 Ventana Flotante" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFloatingStart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_floating_start" />
-
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_floating_start" />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnFloatingStop"
             style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/btn_floating_stop" />
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_floating_stop" />
 
-        <!-- ========== SECCIÓN NOTIFICACIONES ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="🔔 Notificaciones"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#6200EE" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNotifSimple"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_notif_simple" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNotifImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_notif_image" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNotifActions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_notif_actions" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnNotifVibrate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_notif_vibrate" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnClearNotifs"
+        <!-- ═══ NOTIFICACIONES ═══ -->
+        <TextView style="@style/SectionHeader" android:text="🔔 Notificaciones" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnNotifSimple"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_notif_simple" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnNotifImage"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_notif_image" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnNotifActions"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_notif_actions" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnNotifVibrate"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_notif_vibrate" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnClearNotifs"
             style="@style/Widget.Material3.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/btn_clear_notifs" />
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_clear_notifs" />
 
-        <!-- ========== SECCIÓN SISTEMA / SERVICIOS ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="⚙️ Sistema"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#6200EE" />
+        <!-- ═══ PRODUCTIVIDAD ═══ -->
+        <TextView style="@style/SectionHeader" android:text="📋 Productividad" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnCopyClip"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_copy_clip" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnPasteClip"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_paste_clip" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnTts"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_tts" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnCounter"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_counter" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnCounterReset"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_counter_reset" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnStartService"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_start_service" />
+        <!-- ═══ HARDWARE ═══ -->
+        <TextView style="@style/SectionHeader" android:text="🔧 Hardware" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnFlashlight"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_flashlight" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnVolUp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_vol_up" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnVolDown"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_vol_down" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnBrightness"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_brightness" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnFancyVibrate"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_fancy_vibrate" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_pip" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnWorkManager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/btn_work_manager" />
-
-        <!-- ========== SECCIÓN HERRAMIENTAS ========== -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="🛠️ Herramientas"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="#6200EE" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnScan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_scan" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShareText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_share_text" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShareImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="@string/btn_share_image" />
-
-        <!-- ========== CONFIGURACIÓN ========== -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSettings"
+        <!-- ═══ INFO SISTEMA ═══ -->
+        <TextView style="@style/SectionHeader" android:text="📊 Info del Sistema" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnBattery"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_battery" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnNetwork"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_network" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnRam"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_ram" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnDevice"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_device" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSystemAll"
             style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_settings" />
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_system_all" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnTestAll"
+        <!-- ═══ PERSONALIZACIÓN ═══ -->
+        <TextView style="@style/SectionHeader" android:text="🎨 Personalización" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnQr"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_qr" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnWallpaper"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_wallpaper" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnDarkMode"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_dark_mode" />
+
+        <!-- ═══ REDES Y EXTRAS ═══ -->
+        <TextView style="@style/SectionHeader" android:text="🌐 Redes & Extras" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnOpenUrl"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_open_url" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnEmail"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_email" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnDial"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_dial" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnDialog"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_dialog" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSnackbar"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_snackbar" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSensor"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_sensor" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSound"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_sound" />
+
+        <!-- ═══ SISTEMA / SERVICIOS ═══ -->
+        <TextView style="@style/SectionHeader" android:text="⚙️ Sistema & Servicios" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnStartService"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_start_service" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnPip"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_pip" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnWorkManager"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_work_manager" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnScan"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_scan" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnShareText"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_share_text" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnShareImage"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" android:text="@string/btn_share_image" />
+
+        <!-- ═══ CONFIGURACIÓN ═══ -->
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnSettings"
             style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:text="@string/btn_test_all" />
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_settings" />
+        <com.google.android.material.button.MaterialButton android:id="@+id/btnTestAll"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp" android:text="@string/btn_test_all" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="8dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:padding="8dp"
             android:text="@string/btn_deep_link_info"
-            android:textSize="12sp"
-            android:textColor="#888888" />
+            android:textSize="12sp" android:textColor="#888888" />
 
     </LinearLayout>
 </ScrollView>
