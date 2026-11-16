@@ -6,9 +6,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-// Esta función fuerza a Glance a redibujar el widget con el contenido actual
+/**
+ * Fuerza la actualización de TODOS los widgets de la app.
+ */
 fun forceWidgetUpdate(context: Context) {
     CoroutineScope(Dispatchers.IO).launch {
-        MyAppWidget().updateAll(context)
+        try { MyAppWidget().updateAll(context) } catch (_: Exception) {}
+        try { QuickActionWidget().updateAll(context) } catch (_: Exception) {}
+        try { ListAppWidget().updateAll(context) } catch (_: Exception) {}
     }
 }
