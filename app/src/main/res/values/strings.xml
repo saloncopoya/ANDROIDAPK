@@ -18,7 +18,7 @@
     <string name="btn_work_manager">Programar Notificación Periódica</string>
     <string name="btn_deep_link_info">Deep Link: https://saloncopoya.com/proapp/abrir</string>
 
-    <!-- 🆕 VENTANA FLOTANTE -->
+    <!-- VENTANA FLOTANTE -->
     <string name="btn_floating_start">🪟 Iniciar Ventana Flotante</string>
     <string name="btn_floating_stop">🛑 Detener Ventana Flotante</string>
     <string name="btn_settings">⚙️ Configuración</string>
@@ -29,4 +29,39 @@
     <string name="msg_overlay_needed">Se necesita permiso de \"Dibujar sobre otras apps\"</string>
     <string name="msg_floating_started">Ventana flotante activa. Arrástrala por la pantalla.</string>
     <string name="msg_floating_stopped">Ventana flotante cerrada</string>
+
+    <!-- 🆕 PRODUCTIVIDAD -->
+    <string name="btn_copy_clip">📋 Copiar al Portapapeles</string>
+    <string name="btn_paste_clip">📄 Pegar del Portapapeles</string>
+    <string name="btn_tts">🔊 Leer Texto (TTS)</string>
+    <string name="btn_counter">➕ Contador Persistente +1</string>
+    <string name="btn_counter_reset">🔄 Reset Contador</string>
+
+    <!-- 🆕 HARDWARE -->
+    <string name="btn_flashlight">🔦 Toggle Linterna</string>
+    <string name="btn_vol_up">🔊 Subir Volumen</string>
+    <string name="btn_vol_down">🔉 Bajar Volumen</string>
+    <string name="btn_brightness">☀️ Cambiar Brillo</string>
+    <string name="btn_fancy_vibrate">📳 Vibración Patrón</string>
+
+    <!-- 🆕 INFO SISTEMA -->
+    <string name="btn_battery">🔋 Estado de Batería</string>
+    <string name="btn_network">🌐 Info de Red</string>
+    <string name="btn_ram">💾 Info de RAM</string>
+    <string name="btn_device">📱 Info del Dispositivo</string>
+    <string name="btn_system_all">📊 Mostrar TODO el Sistema</string>
+
+    <!-- 🆕 PERSONALIZACIÓN -->
+    <string name="btn_qr">🎨 Generar Código QR</string>
+    <string name="btn_wallpaper">🖼️ Cambiar Wallpaper</string>
+    <string name="btn_dark_mode">🌙 Toggle Modo Oscuro</string>
+
+    <!-- 🆕 REDES / EXTRAS -->
+    <string name="btn_open_url">🌍 Abrir URL</string>
+    <string name="btn_email">✉️ Enviar Email</string>
+    <string name="btn_dial">📞 Marcar Número</string>
+    <string name="btn_dialog">💬 Mostrar Diálogo</string>
+    <string name="btn_snackbar">📢 Mostrar Snackbar</string>
+    <string name="btn_sensor">🧭 Leer Sensores</string>
+    <string name="btn_sound">🎵 Reproducir Sonido</string>
 </resources>
