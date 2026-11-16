@@ -124,7 +124,7 @@
             android:layout_marginBottom="16dp" android:text="@string/btn_dark_mode" />
 
         <!-- ═══ REDES Y EXTRAS ═══ -->
-        <TextView style="@style/SectionHeader" android:text="🌐 Redes & Extras" />
+        <TextView style="@style/SectionHeader" android:text="🌐 Redes &amp; Extras" />
         <com.google.android.material.button.MaterialButton android:id="@+id/btnOpenUrl"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginBottom="6dp" android:text="@string/btn_open_url" />
@@ -148,7 +148,7 @@
             android:layout_marginBottom="16dp" android:text="@string/btn_sound" />
 
         <!-- ═══ SISTEMA / SERVICIOS ═══ -->
-        <TextView style="@style/SectionHeader" android:text="⚙️ Sistema & Servicios" />
+        <TextView style="@style/SectionHeader" android:text="⚙️ Sistema &amp; Servicios" />
         <com.google.android.material.button.MaterialButton android:id="@+id/btnStartService"
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:layout_marginBottom="6dp" android:text="@string/btn_start_service" />
