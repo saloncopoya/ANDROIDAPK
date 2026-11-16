@@ -19,8 +19,8 @@
         android:shortcutId="flotante"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_compass"
-        android:shortcutShortLabel="Flotante"
-        android:shortcutLongLabel="Abrir ventana flotante">
+        android:shortcutShortLabel="@string/shortcut_flotante_corto"
+        android:shortcutLongLabel="@string/shortcut_flotante_largo">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.saloncopoya.proapp"
@@ -33,8 +33,8 @@
         android:shortcutId="qr"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_gallery"
-        android:shortcutShortLabel="Generar QR"
-        android:shortcutLongLabel="Generar código QR">
+        android:shortcutShortLabel="@string/shortcut_qr_corto"
+        android:shortcutLongLabel="@string/shortcut_qr_largo">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.saloncopoya.proapp"
@@ -47,8 +47,8 @@
         android:shortcutId="sistema"
         android:enabled="true"
         android:icon="@android:drawable/ic_menu_info_details"
-        android:shortcutShortLabel="Sistema"
-        android:shortcutLongLabel="Info del sistema">
+        android:shortcutShortLabel="@string/shortcut_sistema_corto"
+        android:shortcutLongLabel="@string/shortcut_sistema_largo">
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.saloncopoya.proapp"
