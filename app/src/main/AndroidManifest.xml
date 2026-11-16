@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"
+        tools:targetApi="34" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.PICTURE_IN_PICTURE" />
@@ -36,18 +39,27 @@
             </intent-filter>
         </activity>
 
-        <!-- Receiver para los botones de PiP -->
+        <!-- 🆕 SERVICIO DE VENTANA FLOTANTE INTERACTIVA -->
+        <service
+            android:name=".service.FloatingWindowService"
+            android:foregroundServiceType="specialUse"
+            android:exported="false">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Floating overlay window for interactive quick actions" />
+        </service>
+
         <receiver android:name=".PipActionReceiver" android:exported="false" />
 
-        <service android:name=".service.MyForegroundService" android:foregroundServiceType="dataSync" android:exported="false" />
+        <service android:name=".service.MyForegroundService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" />
 
-        <!-- WIDGET 1: El que ya tenías -->
         <receiver android:name=".widget.MyAppWidgetReceiver" android:exported="true">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/my_app_widget_info" />
         </receiver>
 
-        <!-- WIDGET 2: El nuevo widget de botón rápido -->
         <receiver android:name=".widget.QuickActionWidgetReceiver" android:exported="true">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/quick_action_widget_info" />
