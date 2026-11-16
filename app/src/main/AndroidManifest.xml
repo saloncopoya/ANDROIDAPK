@@ -10,7 +10,15 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.PICTURE_IN_PICTURE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -39,7 +47,6 @@
             </intent-filter>
         </activity>
 
-        <!-- 🆕 SERVICIO DE VENTANA FLOTANTE INTERACTIVA -->
         <service
             android:name=".service.FloatingWindowService"
             android:foregroundServiceType="specialUse"
@@ -55,14 +62,22 @@
             android:foregroundServiceType="dataSync"
             android:exported="false" />
 
+        <!-- WIDGET 1: Clásico -->
         <receiver android:name=".widget.MyAppWidgetReceiver" android:exported="true">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/my_app_widget_info" />
         </receiver>
 
+        <!-- WIDGET 2: Quick Action -->
         <receiver android:name=".widget.QuickActionWidgetReceiver" android:exported="true">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/quick_action_widget_info" />
+        </receiver>
+
+        <!-- 🆕 WIDGET 3: Panel tipo "App dentro" -->
+        <receiver android:name=".widget.ListAppWidgetReceiver" android:exported="true">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/list_app_widget_info" />
         </receiver>
 
         <service
