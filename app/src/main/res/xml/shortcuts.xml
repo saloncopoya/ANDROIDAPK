@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
     <shortcut
         android:shortcutId="notificar"
         android:enabled="true"
@@ -13,4 +14,47 @@
             <extra android:name="accion" android:value="notificar" />
         </intent>
     </shortcut>
+
+    <shortcut
+        android:shortcutId="flotante"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:shortcutShortLabel="Flotante"
+        android:shortcutLongLabel="Abrir ventana flotante">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.saloncopoya.proapp"
+            android:targetClass="com.saloncopoya.proapp.MainActivity">
+            <extra android:name="accion" android:value="flotante" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="qr"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:shortcutShortLabel="Generar QR"
+        android:shortcutLongLabel="Generar código QR">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.saloncopoya.proapp"
+            android:targetClass="com.saloncopoya.proapp.MainActivity">
+            <extra android:name="accion" android:value="qr" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="sistema"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:shortcutShortLabel="Sistema"
+        android:shortcutLongLabel="Info del sistema">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.saloncopoya.proapp"
+            android:targetClass="com.saloncopoya.proapp.MainActivity">
+            <extra android:name="accion" android:value="sistema" />
+        </intent>
+    </shortcut>
+
 </shortcuts>
