@@ -1,11 +1,22 @@
 <resources>
     <string name="app_name">AppNativaPro</string>
+
+    <!-- Shortcuts -->
     <string name="shortcut_notificar_corto">Notificar</string>
     <string name="shortcut_notificar_largo">Enviar notificación de prueba</string>
+    <string name="shortcut_flotante_corto">Flotante</string>
+    <string name="shortcut_flotante_largo">Abrir ventana flotante</string>
+    <string name="shortcut_qr_corto">Generar QR</string>
+    <string name="shortcut_qr_largo">Generar código QR</string>
+    <string name="shortcut_sistema_corto">Sistema</string>
+    <string name="shortcut_sistema_largo">Info del sistema</string>
+
+    <!-- Widgets / Servicios -->
     <string name="widget_text">App Pro\nWidget Activo</string>
     <string name="notif_service_title">Servicio en Primer Plano</string>
     <string name="notif_service_text">La app está ejecutándose en segundo plano</string>
 
+    <!-- Botones principales -->
     <string name="btn_notif_simple">Notificación Simple</string>
     <string name="btn_notif_image">Notificación con Imagen</string>
     <string name="btn_notif_actions">Notificación con Botones</string>
@@ -30,33 +41,33 @@
     <string name="msg_floating_started">Ventana flotante activa. Arrástrala por la pantalla.</string>
     <string name="msg_floating_stopped">Ventana flotante cerrada</string>
 
-    <!-- 🆕 PRODUCTIVIDAD -->
+    <!-- PRODUCTIVIDAD -->
     <string name="btn_copy_clip">📋 Copiar al Portapapeles</string>
     <string name="btn_paste_clip">📄 Pegar del Portapapeles</string>
     <string name="btn_tts">🔊 Leer Texto (TTS)</string>
     <string name="btn_counter">➕ Contador Persistente +1</string>
     <string name="btn_counter_reset">🔄 Reset Contador</string>
 
-    <!-- 🆕 HARDWARE -->
+    <!-- HARDWARE -->
     <string name="btn_flashlight">🔦 Toggle Linterna</string>
     <string name="btn_vol_up">🔊 Subir Volumen</string>
     <string name="btn_vol_down">🔉 Bajar Volumen</string>
     <string name="btn_brightness">☀️ Cambiar Brillo</string>
     <string name="btn_fancy_vibrate">📳 Vibración Patrón</string>
 
-    <!-- 🆕 INFO SISTEMA -->
+    <!-- INFO SISTEMA -->
     <string name="btn_battery">🔋 Estado de Batería</string>
     <string name="btn_network">🌐 Info de Red</string>
     <string name="btn_ram">💾 Info de RAM</string>
     <string name="btn_device">📱 Info del Dispositivo</string>
     <string name="btn_system_all">📊 Mostrar TODO el Sistema</string>
 
-    <!-- 🆕 PERSONALIZACIÓN -->
+    <!-- PERSONALIZACIÓN -->
     <string name="btn_qr">🎨 Generar Código QR</string>
     <string name="btn_wallpaper">🖼️ Cambiar Wallpaper</string>
     <string name="btn_dark_mode">🌙 Toggle Modo Oscuro</string>
 
-    <!-- 🆕 REDES / EXTRAS -->
+    <!-- REDES / EXTRAS -->
     <string name="btn_open_url">🌍 Abrir URL</string>
     <string name="btn_email">✉️ Enviar Email</string>
     <string name="btn_dial">📞 Marcar Número</string>
