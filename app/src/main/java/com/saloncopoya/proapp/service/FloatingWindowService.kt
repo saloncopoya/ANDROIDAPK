@@ -4,7 +4,6 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
 import android.graphics.PixelFormat
@@ -23,6 +22,7 @@ import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import com.saloncopoya.proapp.MainActivity
 import com.saloncopoya.proapp.R
+import com.saloncopoya.proapp.utils.SystemTools
 
 class FloatingWindowService : Service() {
 
@@ -31,11 +31,9 @@ class FloatingWindowService : Service() {
     private lateinit var params: WindowManager.LayoutParams
     private var collapsedRoot: View? = null
     private var expandedRoot: View? = null
-    private var isExpanded = true
     private var currentScale = 1.0f
     private var actionCount = 0
 
-    // Estado drag
     private var initialX = 0
     private var initialY = 0
     private var initialTouchX = 0f
@@ -84,7 +82,6 @@ class FloatingWindowService : Service() {
     }
 
     private fun showFloating() {
-        // Usar ContextThemeWrapper para que MaterialButton funcione
         val themed = ContextThemeWrapper(this, R.style.Theme_AppNativaPro)
         floatingView = LayoutInflater.from(themed).inflate(R.layout.floating_window, null)
 
@@ -115,38 +112,40 @@ class FloatingWindowService : Service() {
         collapsedRoot = floatingView.findViewById(R.id.collapsedRoot)
         expandedRoot = floatingView.findViewById(R.id.expandedRoot)
 
-        // ── Burbuja colapsada (drag + tap para expandir)
+        // Burbuja colapsada
         val bubble = floatingView.findViewById<View>(R.id.collapsedBubble)
         bubble.setOnTouchListener(dragListener)
         bubble.setOnClickListener {
             setExpanded(true)
-            Toast.makeText(this, "Ventana expandida", Toast.LENGTH_SHORT).show()
         }
 
-        // ── Header de la ventana expandida (drag)
-        val handle = floatingView.findViewById<View>(R.id.dragHandle)
-        handle.setOnTouchListener(dragListener)
+        // Header arrastrable
+        floatingView.findViewById<View>(R.id.dragHandle).setOnTouchListener(dragListener)
 
-        // ── Botones funcionales
+        // Botones de control
         floatingView.findViewById<View>(R.id.btnCollapse).setOnClickListener { setExpanded(false) }
         floatingView.findViewById<View>(R.id.btnClose).setOnClickListener { stopSelf() }
 
+        // Botón abrir app
         floatingView.findViewById<View>(R.id.btnOpenApp).setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
             })
         }
 
+        // Notificación
         floatingView.findViewById<View>(R.id.btnNotif).setOnClickListener {
             sendQuickNotification()
             incrementCounter()
         }
 
+        // Vibrar
         floatingView.findViewById<View>(R.id.btnVibrate).setOnClickListener {
             vibrate()
             incrementCounter()
         }
 
+        // Cambiar tamaño
         floatingView.findViewById<View>(R.id.btnSize).setOnClickListener {
             currentScale = if (currentScale == 1.0f) 1.35f else 1.0f
             floatingView.scaleX = currentScale
@@ -154,16 +153,38 @@ class FloatingWindowService : Service() {
             Toast.makeText(this, "Tamaño: ${(currentScale * 100).toInt()}%", Toast.LENGTH_SHORT).show()
         }
 
+        // Toast
         floatingView.findViewById<View>(R.id.btnToast).setOnClickListener {
             Toast.makeText(this, "¡Hola desde la ventana flotante! 👋", Toast.LENGTH_SHORT).show()
             incrementCounter()
         }
 
+        // PiP
         floatingView.findViewById<View>(R.id.btnPipFloat).setOnClickListener {
-            // Abre MainActivity y entra en PiP como alternativa
             startActivity(Intent(this, MainActivity::class.java).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 putExtra("enter_pip", true)
+            })
+        }
+
+        // 🔦 Linterna (NUEVO)
+        floatingView.findViewById<View>(R.id.btnFlash).setOnClickListener {
+            val on = SystemTools.toggleFlashlight(this)
+            Toast.makeText(this, if (on) "🔦 Linterna ON" else "🔦 Linterna OFF", Toast.LENGTH_SHORT).show()
+            incrementCounter()
+        }
+
+        // 🔊 TTS (NUEVO)
+        floatingView.findViewById<View>(R.id.btnSpeak).setOnClickListener {
+            SystemTools.speak(this, "Hola, soy la ventana flotante de App Pro")
+            incrementCounter()
+        }
+
+        // 🎨 QR (NUEVO)
+        floatingView.findViewById<View>(R.id.btnQrFloat).setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                putExtra("accion", "qr")
             })
         }
     }
@@ -174,7 +195,6 @@ class FloatingWindowService : Service() {
     }
 
     private fun setExpanded(expand: Boolean) {
-        isExpanded = expand
         collapsedRoot?.visibility = if (expand) View.GONE else View.VISIBLE
         expandedRoot?.visibility = if (expand) View.VISIBLE else View.GONE
     }
@@ -201,7 +221,6 @@ class FloatingWindowService : Service() {
         Toast.makeText(this, "📳 Vibrando", Toast.LENGTH_SHORT).show()
     }
 
-    // ── Drag universal (funciona en burbuja y header)
     private val dragListener = View.OnTouchListener { view, event ->
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -226,7 +245,7 @@ class FloatingWindowService : Service() {
                 true
             }
             MotionEvent.ACTION_UP -> {
-                if (!isDragging) view.performClick() // tap → dispara OnClickListener
+                if (!isDragging) view.performClick()
                 isDragging = false
                 true
             }
@@ -241,9 +260,5 @@ class FloatingWindowService : Service() {
         if (::floatingView.isInitialized) {
             try { windowManager.removeView(floatingView) } catch (_: Exception) {}
         }
-    }
-
-    companion object {
-        fun isRunning = false
     }
 }
