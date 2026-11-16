@@ -10,7 +10,7 @@ import androidx.core.app.NotificationCompat
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.glance.GlanceId
-import androidx.glance.action.ActionCallback
+import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.action.ActionParameters
 import androidx.glance.appwidget.updateAll
 import androidx.glance.appwidget.state.updateAppWidgetState
