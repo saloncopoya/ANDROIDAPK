@@ -5,16 +5,28 @@
     <string name="widget_text">App Pro\nWidget Activo</string>
     <string name="notif_service_title">Servicio en Primer Plano</string>
     <string name="notif_service_text">La app está ejecutándose en segundo plano</string>
-    
+
     <string name="btn_notif_simple">Notificación Simple</string>
     <string name="btn_notif_image">Notificación con Imagen</string>
     <string name="btn_notif_actions">Notificación con Botones</string>
     <string name="btn_notif_vibrate">Notificación con Vibración</string>
     <string name="btn_start_service">Iniciar Servicio Persistente</string>
-    <string name="btn_pip">Entrar en Picture-in-Picture</string>
+    <string name="btn_pip">Entrar en Picture-in-Picture (video)</string>
     <string name="btn_scan">Escanear Código de Barras</string>
     <string name="btn_share_text">Compartir Texto en Redes</string>
     <string name="btn_share_image">Compartir Imagen en Redes</string>
     <string name="btn_work_manager">Programar Notificación Periódica</string>
-    <string name="btn_deep_link_info">Probar Deep Link (Abre este enlace en el navegador: https://saloncopoya.com/proapp/abrir)</string>
+    <string name="btn_deep_link_info">Deep Link: https://saloncopoya.com/proapp/abrir</string>
+
+    <!-- 🆕 VENTANA FLOTANTE -->
+    <string name="btn_floating_start">🪟 Iniciar Ventana Flotante</string>
+    <string name="btn_floating_stop">🛑 Detener Ventana Flotante</string>
+    <string name="btn_settings">⚙️ Configuración</string>
+    <string name="btn_test_all">🎯 Probar TODO</string>
+    <string name="btn_clear_notifs">🧹 Limpiar Notificaciones</string>
+    <string name="btn_about">ℹ️ Acerca de</string>
+
+    <string name="msg_overlay_needed">Se necesita permiso de \"Dibujar sobre otras apps\"</string>
+    <string name="msg_floating_started">Ventana flotante activa. Arrástrala por la pantalla.</string>
+    <string name="msg_floating_stopped">Ventana flotante cerrada</string>
 </resources>
