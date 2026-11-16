@@ -4,17 +4,18 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
+import androidx.glance.action.Action
 import androidx.glance.action.actionStartActivity
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
 import androidx.glance.currentState
-import androidx.glance.layout.Alignment
 import androidx.glance.layout.Column
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
@@ -22,23 +23,19 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
+import androidx.glance.layout.width
+import androidx.glance.layout.defaultWeight
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
-import androidx.datastore.preferences.core.Preferences
 import com.saloncopoya.proapp.MainActivity
 import com.saloncopoya.proapp.utils.SystemTools
-import com.saloncopoya.proapp.widget.actions.NotifyAction
-import com.saloncopoya.proapp.widget.actions.VibrateAction
 import com.saloncopoya.proapp.widget.actions.IncrementAction
+import com.saloncopoya.proapp.widget.actions.NotifyAction
 import com.saloncopoya.proapp.widget.actions.ResetAction
+import com.saloncopoya.proapp.widget.actions.VibrateAction
 
-/**
- * Widget "tipo app dentro":
- * Muestra info dinámica + varios botones interactivos
- * sin necesidad de abrir la app principal.
- */
 class ListAppWidget : GlanceAppWidget() {
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
@@ -62,23 +59,15 @@ class ListAppWidget : GlanceAppWidget() {
                 .padding(10.dp)
         ) {
             // Header
-            Row(
-                modifier = GlanceModifier.fillMaxWidth().padding(bottom = 8.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "🚀 App Pro",
-                    style = TextStyle(
-                        color = ColorProvider(Color.White),
-                        fontWeight = FontWeight.Bold
-                    )
+            Text(
+                text = "🚀 App Pro • v2.0",
+                style = TextStyle(
+                    color = ColorProvider(Color.White),
+                    fontWeight = FontWeight.Bold
                 )
-                Spacer(GlanceModifier.defaultWeight())
-                Text(
-                    text = "v2.0",
-                    style = TextStyle(color = ColorProvider(Color(0xFFAAAAAA)))
-                )
-            }
+            )
+
+            Spacer(GlanceModifier.height(6.dp))
 
             // Panel info
             Column(
@@ -95,14 +84,14 @@ class ListAppWidget : GlanceAppWidget() {
 
             Spacer(GlanceModifier.height(8.dp))
 
-            // Fila 1 de acciones
-            Row(modifier = GlanceModifier.fillMaxWidth().padding(bottom = 4.dp)) {
+            // Fila 1: Abrir + Notif
+            Row(modifier = GlanceModifier.fillMaxWidth()) {
                 WidgetButton(
                     text = "📱 Abrir",
                     modifier = GlanceModifier.defaultWeight(),
                     onClick = actionStartActivity<MainActivity>()
                 )
-                Spacer(GlanceModifier.defaultWeight().let { GlanceModifier.padding(horizontal = 2.dp) })
+                Spacer(GlanceModifier.width(4.dp))
                 WidgetButton(
                     text = "🔔 Notif",
                     modifier = GlanceModifier.defaultWeight(),
@@ -110,20 +99,22 @@ class ListAppWidget : GlanceAppWidget() {
                 )
             }
 
-            // Fila 2 de acciones
+            Spacer(GlanceModifier.height(4.dp))
+
+            // Fila 2: +1 / Vibrar / Reset
             Row(modifier = GlanceModifier.fillMaxWidth()) {
                 WidgetButton(
                     text = "➕ +1",
                     modifier = GlanceModifier.defaultWeight(),
                     onClick = actionRunCallback<IncrementAction>()
                 )
-                Spacer(GlanceModifier.defaultWeight().let { GlanceModifier.padding(horizontal = 2.dp) })
+                Spacer(GlanceModifier.width(4.dp))
                 WidgetButton(
                     text = "📳 Vibrar",
                     modifier = GlanceModifier.defaultWeight(),
                     onClick = actionRunCallback<VibrateAction>()
                 )
-                Spacer(GlanceModifier.defaultWeight().let { GlanceModifier.padding(horizontal = 2.dp) })
+                Spacer(GlanceModifier.width(4.dp))
                 WidgetButton(
                     text = "🔄 Reset",
                     modifier = GlanceModifier.defaultWeight(),
@@ -135,10 +126,7 @@ class ListAppWidget : GlanceAppWidget() {
 
     @Composable
     private fun InfoRow(label: String, value: String) {
-        Row(
-            modifier = GlanceModifier.fillMaxWidth().padding(vertical = 2.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+        Row(modifier = GlanceModifier.fillMaxWidth().padding(vertical = 2.dp)) {
             Text(
                 text = label,
                 style = TextStyle(color = ColorProvider(Color(0xFFB0B0B0)))
@@ -158,7 +146,7 @@ class ListAppWidget : GlanceAppWidget() {
     private fun WidgetButton(
         text: String,
         modifier: GlanceModifier = GlanceModifier,
-        onClick: androidx.glance.action.Action
+        onClick: Action
     ) {
         androidx.glance.Button(
             text = text,
